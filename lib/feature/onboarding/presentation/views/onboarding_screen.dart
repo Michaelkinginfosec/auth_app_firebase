@@ -7,19 +7,19 @@ import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
+
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
-
   int _currenPage = 0;
 
   @override
   void dispose() {
-    super.dispose();
     _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,62 +41,54 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [FirstScreen(), SecondScreen(), ThirdScreen()],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              if (_currenPage < 2) {
-                _pageController.animateToPage(
-                  _currenPage + 1,
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-              }
-              // else {
-              //   _pageController.animateToPage(
-              //     _currenPage - 1,
-              //     duration: Duration(milliseconds: 300),
-              //     curve: Curves.easeIn,
-              //   );
-              // }
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Previous",
-                    style: TextStyle(
-                      color: _currenPage == 2 ? AppColor.blue : AppColor.white,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (_currenPage > 0)
+                  GestureDetector(
+                    onTap: () {
+                      _pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                    child: Text(
+                      "Previous",
+                      style: TextStyle(color: AppColor.blue),
                     ),
                   ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(3, (int index) {
-                      return Image.asset(
+                AppSize.fiftyWidth,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(3, (int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: Image.asset(
                         "assets/images/ova.png",
                         color:
                             _currenPage == index
                                 ? AppColor.blue
                                 : AppColor.grey,
+                      ),
+                    );
+                  }),
+                ),
+                AppSize.fiftyWidth,
+                if (_currenPage < 2)
+                  GestureDetector(
+                    onTap: () {
+                      _pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
                       );
-                    }),
+                    },
+                    child: Text("Next", style: TextStyle(color: AppColor.blue)),
                   ),
-                  Spacer(),
-                  Text(
-                    "Next",
-                    style: TextStyle(
-                      color:
-                          (_currenPage < 2 && _currenPage > 0)
-                              ? AppColor.blue
-                              : AppColor.blue,
-                    ),
-                  ),
-                ],
-              ),
+              ],
             ),
           ),
-
           AppSize.fifty,
         ],
       ),
