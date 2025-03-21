@@ -1,16 +1,19 @@
-# auth_app_firebase
+# 🚗 Vehicle Purchase App – Onboarding Screen  
 
-A new Flutter project.
+This project features the onboarding screen for a vehicle purchase app, designed to provide a seamless user introduction.  
 
-## Getting Started
+## ✨ Features  
+- Modern and intuitive onboarding UI  
+- Smooth animations and transitions  
+- Built using **Flutter, Riverpod, and Clean Architecture**  
 
-This project is a starting point for a Flutter application.
+## 📌 Next Steps  
+- Implement authentication using Firebase  
+- Enhance user experience with additional UI improvements  
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Tech Stack  
+- **Flutter** – For building the UI  
+- **Riverpod** – For state management  
+- **Clean Architecture** – For better code organization  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+More updates coming soon! 🎯
